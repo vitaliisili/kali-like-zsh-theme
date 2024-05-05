@@ -70,7 +70,7 @@ TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 configure_prompt() {
     ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[067]%}["
     ZSH_THEME_GIT_PROMPT_SUFFIX="] %{$reset_color%}"
-
+    PROMPT_SYMBOL="㉿"
 
     if [[ $UID == 0 || $EUID == 0 ]]; then
         FGPROMPT="$FG[196]"
@@ -81,7 +81,7 @@ configure_prompt() {
     fi
     case "$PROMPT_ALTERNATIVE" in
         twoline)
-            PROMPT=$'$CYANPROMPT┌───\(%B$FGPROMPT%n@%m%b$CYANPROMPT)-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b$CYANPROMPT]$(git_prompt_info)\n└─%B%(#.%F{red}#.$FGPROMPT$)%b%F{reset} '
+            PROMPT=$'$CYANPROMPT┌─$reset_color$(virtualenv_info)$CYANPROMPT──\(%B$FGPROMPT%n$PROMPT_SYMBOL%m%b$CYANPROMPT)-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b$CYANPROMPT]$(git_prompt_info)\n$CYANPROMPT└─%B%(#.%F{red}#.$FGPROMPT$)%b%F{reset} '
             RPROMPT=
             ;;
         oneline)
