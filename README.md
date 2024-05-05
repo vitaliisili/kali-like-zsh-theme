@@ -7,16 +7,22 @@ Kali-Like can be installed on any linux distribution and isn't Kali Linux depend
 
 ## Installation  
 
-1. `wget -O ~/.oh-my-zsh/themes/kali-like.zsh-theme https://raw.githubusercontent.com/clamy54/kali-like-zsh-theme/master/kali-like.zsh-theme`  
+1. `wget -O ~/.oh-my-zsh/custom/themes/kali-like.zsh-theme https://raw.githubusercontent.com/vitaliisili/kali-like-zsh-theme/main/kali-like.zsh-theme`  
 2. `vim ~/.zshrc`  
 3. Set `ZSH_THEME="current_theme"` to `ZSH_THEME="kali-like"`  
-
+4. Add `virtualenv` plugin `plugins=(... virtualenv)` in `.zshrc` file
+5. Add function bellow in `.zshrc` file:
+```bash
+function virtualenv_info { 
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
+}
+```
 
 ## Options  
 Kali-Like use zsh_autosuggestions and zsh-syntax-highlighting plugins.
 If it doesn't find theses plugins, it downloads them automatically in your ~/.zsh folder.
 
-If you dont' want to automatically download missing plugins, you can set AUTO_DOWNLOAD_SYNTAX_HIGHLIGHTING_PLUGIN and AUTO_DOWNLOAD_ZSH_AUTOSUGGESTIONS_PLUGIN to "no" at the beginning of the theme file.
+If you don't want to automatically download missing plugins, you can set AUTO_DOWNLOAD_SYNTAX_HIGHLIGHTING_PLUGIN and AUTO_DOWNLOAD_ZSH_AUTOSUGGESTIONS_PLUGIN to "no" at the beginning of the theme file.
 
 If you don't want to use theses plugins, you can set USE_SYNTAX_HIGHLIGHTING and USE_ZSH_AUTOSUGGESTIONS vars to "no" at the beginning of the theme file.
 
